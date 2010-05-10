@@ -2261,4 +2261,12 @@ found in the list of installed applications.</string>
     <string name="proxy_setting_summary">Configure a proxy to access the internet</string>
     <string name="proxy_wifi_only">Use proxy only on wifi</string>
 
+
+<!-- Awesome New Stuff... radio information. -->
+
+    <string name="radio_info_type">XXX_TYPE</string>
+    <string name="radio_info_avail">XXX_AVAIL</string>
+    <string name="radio_info_conn">XXX_CONN</string>
+    <string name="radio_info_conn_sub">XXX_CONN_SUB</string>
+
 </resources>
