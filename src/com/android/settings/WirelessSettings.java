@@ -159,4 +159,31 @@ public class WirelessSettings extends PreferenceActivity {
         }
     }
 
+    private void updateRadioInfo()
+    {
+	String riType = "";
+	String riStatus = "";
+
+
+	try 
+        {
+            findPreference("radio_info_type").setSummary(riType);
+        } 
+        catch (RuntimeException e) 
+        {
+            findPreference("radio_info_type").setSummary(getResources().getString(R.string.radio_info_type_default));
+        }
+
+	try 
+        {
+            findPreference("radio_info_status").setSummary(riStatus);
+        } 
+        catch (RuntimeException e) 
+        {
+            findPreference("radio_info_status").setSummary(getResources().getString(R.string.radio_info_status_default));
+        }
+
+
+    }
+
 }

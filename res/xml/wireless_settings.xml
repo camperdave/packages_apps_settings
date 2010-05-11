@@ -97,13 +97,13 @@
     <Preference 
 	android:key="radio_info_type" style="?android:preferenceInformationStyle" 
 	android:title="@string/radio_info_type_title" 
-	android:summary="@string/radio_info_type"
+	android:summary="@string/radio_info_type_default"
     />
 
     <Preference 
 	android:key="radio_info_status" style="?android:preferenceInformationStyle" 
 	android:title="@string/radio_info_status_title" 
-	android:summary="@string/radio_info_status"
+	android:summary="@string/radio_info_status_default"
     />
 
     <!-- END NEW RADIO INFO SECTION -->

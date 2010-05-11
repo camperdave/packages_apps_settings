@@ -2264,9 +2264,9 @@ found in the list of installed applications.</string>
 
 <!-- Awesome New Stuff... radio information. -->
 
-    <string name="radio_info_type">XXX_TYPE</string>
+    <string name="radio_info_type_default">XXX_TYPE</string>
     <string name="radio_info_type_title">Connection Type:</string>
     <string name="radio_info_status_title">Connection Status:</string>
-    <string name="radio_info_status">XXX_STATUS</string>
+    <string name="radio_info_status_default">XXX_STATUS</string>
 
 </resources>
