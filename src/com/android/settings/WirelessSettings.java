@@ -168,7 +168,9 @@ public class WirelessSettings extends PreferenceActivity {
 	String riType = "";
 	String riStatus = "";
 
-	NetworkInfo ni = Context.getSystemService(Context.CONNECTIVITY_SERVICE).getActiveNetworkInfo();
+	ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+	NetworkInfo ni = cm.getActiveNetworkInfo();
 
 	riType = ni.getTypeName();
 
