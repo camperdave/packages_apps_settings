@@ -36,6 +36,7 @@ import com.android.settings.wifi.WifiEnabler;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.content.Context;
 
 public class WirelessSettings extends PreferenceActivity {
 
