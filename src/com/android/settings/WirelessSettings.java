@@ -88,6 +88,7 @@ public class WirelessSettings extends PreferenceActivity {
 
         initToggles();
         mAirplaneModePreference = (CheckBoxPreference) findPreference(KEY_TOGGLE_AIRPLANE);
+	updateRadioInfo();
     }
     
     @Override
@@ -98,6 +99,8 @@ public class WirelessSettings extends PreferenceActivity {
         mBtEnabler.resume();
         mAirplaneModeEnabler.resume();
         mTetheringEnabler.resume();
+
+	updateRadioInfo();
     }
     
     @Override
