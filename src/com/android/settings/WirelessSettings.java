@@ -34,6 +34,9 @@ import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.wifi.WifiEnabler;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 public class WirelessSettings extends PreferenceActivity {
 
     private static final String KEY_TOGGLE_AIRPLANE = "toggle_airplane";
@@ -163,6 +166,28 @@ public class WirelessSettings extends PreferenceActivity {
     {
 	String riType = "";
 	String riStatus = "";
+
+	NetworkInfo ni = Context.getSystemService(Context.CONNECTIVITY_SERVICE).getActiveNetworkInfo();
+
+	riType = ni.getTypeName();
+
+	if(ni.isConnected())
+	{
+		riStatus = "Connected!";
+	}
+	else if(ni.isAvailable())
+	{
+		riStatus = "Available!";
+	}
+	else
+	{
+		riStatus = "Down...";
+	}
+
+	if(ni.isRoaming())
+	{
+		riStatus += " (roaming)";
+	}	
 
 
 	try 
