@@ -171,29 +171,39 @@ public class WirelessSettings extends PreferenceActivity {
 	String riType = "";
 	String riStatus = "";
 
-	ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-	NetworkInfo ni = cm.getActiveNetworkInfo();
-
-	riType = ni.getTypeName();
-
-	if(ni.isConnected())
+	try
 	{
-		riStatus = "Connected!";
+
+		ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		NetworkInfo ni = cm.getActiveNetworkInfo();
+
+		riType = ni.getTypeName();
+
+		if(ni.isConnected())
+		{
+			riStatus = "Connected!";
+		}
+		else if(ni.isAvailable())
+		{
+			riStatus = "Available!";
+		}
+		else
+		{
+			riStatus = "Down...";
+		}
+
+		if(ni.isRoaming())
+		{
+			riStatus += " (roaming)";
+		}	
 	}
-	else if(ni.isAvailable())
+	catch(Exception e)		// Don't actually know what it is yet...
 	{
-		riStatus = "Available!";
-	}
-	else
-	{
-		riStatus = "Down...";
-	}
 
-	if(ni.isRoaming())
-	{
-		riStatus += " (roaming)";
-	}	
+		riType = e.getMessage();
+		riStatus = e.toString();
+	}
 
 
 	try 
