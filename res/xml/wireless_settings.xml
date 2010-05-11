@@ -92,4 +92,20 @@
             android:targetClass="com.android.settings.ProxySelector" />
     </PreferenceScreen>
 
+    <!-- New Radio Information Section. -->
+
+    <Preference 
+	android:key="radio_info_type" style="?android:preferenceInformationStyle" 
+	android:title="@string/radio_info_type_title" 
+	android:summary="@string/radio_info_type"
+    />
+
+    <Preference 
+	android:key="radio_info_status" style="?android:preferenceInformationStyle" 
+	android:title="@string/radio_info_status_title" 
+	android:summary="@string/radio_info_status"
+    />
+
+    <!-- END NEW RADIO INFO SECTION -->
+
 </PreferenceScreen>
