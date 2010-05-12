@@ -59,7 +59,7 @@ public class WirelessSettings extends PreferenceActivity {
     private CheckBoxPreference mAirplaneModePreference;
     private TetheringEnabler mTetheringEnabler;
 
-    private Preference mRadioInformationTitle;
+    private Preference mRadioInformationType;
     private Preference mRadioInformationStatus;
 
     /**
@@ -79,7 +79,7 @@ public class WirelessSettings extends PreferenceActivity {
 
             return true;
         }
-	else if ( (preference == mRadioInformationTitle) || (preference == mRadioInformationStatus) )
+	else if ( (preference == mRadioInformationType) || (preference == mRadioInformationStatus) )
 	{
 		updateRadioInfo();
 		return true;
@@ -131,8 +131,8 @@ public class WirelessSettings extends PreferenceActivity {
         Preference wifiSettings = findPreference(KEY_WIFI_SETTINGS);
         Preference vpnSettings = findPreference(KEY_VPN_SETTINGS);
         Preference proxySetting = findPreference(KEY_PROXY_SETTING);
-	mRadioInformationTitle = findPreference(KEY_RADIO_INFO_TITLE);
-	mRadioInformationStatus = findPreference(KEY_RADIO_INFO_Status);
+	mRadioInformationType = findPreference(KEY_RADIO_INFO_TYPE);
+	mRadioInformationStatus = findPreference(KEY_RADIO_INFO_STATUS);
         
         IBinder b = ServiceManager.getService(BluetoothAdapter.BLUETOOTH_SERVICE);
         if (b == null) {
