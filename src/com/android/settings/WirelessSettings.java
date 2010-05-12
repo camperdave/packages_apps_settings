@@ -48,6 +48,8 @@ public class WirelessSettings extends PreferenceActivity {
     private static final String KEY_VPN_SETTINGS = "vpn_settings";
     private static final String KEY_TOGGLE_TETHERING = "toggle_tethering";
     private static final String KEY_PROXY_SETTING = "proxy_setting";
+    private static final String KEY_RADIO_INFO_TYPE = "radio_info_type";
+    private static final String KEY_RADIO_INFO_STATUS = "radio_info_status";
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
 
@@ -56,6 +58,9 @@ public class WirelessSettings extends PreferenceActivity {
     private BluetoothEnabler mBtEnabler;
     private CheckBoxPreference mAirplaneModePreference;
     private TetheringEnabler mTetheringEnabler;
+
+    private Preference mRadioInformationTitle;
+    private Preference mRadioInformationStatus;
 
     /**
      * Invoked on each preference click in this hierarchy, overrides
@@ -74,6 +79,11 @@ public class WirelessSettings extends PreferenceActivity {
 
             return true;
         }
+	else if ( (preference == mRadioInformationTitle) || (preference == mRadioInformationStatus) )
+	{
+		updateRadioInfo();
+		return true;
+	}
         else {
             // Let the intents be launched by the Preference manager
             return false;
@@ -121,6 +131,8 @@ public class WirelessSettings extends PreferenceActivity {
         Preference wifiSettings = findPreference(KEY_WIFI_SETTINGS);
         Preference vpnSettings = findPreference(KEY_VPN_SETTINGS);
         Preference proxySetting = findPreference(KEY_PROXY_SETTING);
+	mRadioInformationTitle = findPreference(KEY_RADIO_INFO_TITLE);
+	mRadioInformationStatus = findPreference(KEY_RADIO_INFO_Status);
         
         IBinder b = ServiceManager.getService(BluetoothAdapter.BLUETOOTH_SERVICE);
         if (b == null) {
