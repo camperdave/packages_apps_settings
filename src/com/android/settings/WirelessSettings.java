@@ -171,14 +171,20 @@ public class WirelessSettings extends PreferenceActivity {
 	String riType = "";
 	String riStatus = "";
 
-	try
+	ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+	NetworkInfo ni = cm.getActiveNetworkInfo();
+
+	if(ni == null)
 	{
-
-		ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-		NetworkInfo ni = cm.getActiveNetworkInfo();
-
+		// If there's no radio active (ie: airplane mode)
+		riType = "No radio active."
+		riStatus = "";
+	}
+	else
+	{
 		riType = ni.getTypeName();
+		riType += " - " + ni.getSubtypeName();
 
 		if(ni.isConnected())
 		{
@@ -197,12 +203,6 @@ public class WirelessSettings extends PreferenceActivity {
 		{
 			riStatus += " (roaming)";
 		}	
-	}
-	catch(Exception e)		// Don't actually know what it is yet...
-	{
-
-		riType = e.getMessage();
-		riStatus = e.toString();
 	}
 
 
