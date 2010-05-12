@@ -190,7 +190,7 @@ public class WirelessSettings extends PreferenceActivity {
 	if(ni == null)
 	{
 		// If there's no radio active (ie: airplane mode)
-		riType = "No radio active."
+		riType = "No radio active.";
 		riStatus = "";
 	}
 	else
